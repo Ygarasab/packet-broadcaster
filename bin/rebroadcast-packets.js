@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const rebroadcaster = require('../rebroadcaster')
 const yargs = require('yargs')
 
