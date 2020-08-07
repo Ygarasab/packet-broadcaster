@@ -23,7 +23,8 @@
   "homepage": "https://github.com/ygarasab/packet-broadcaster#readme",
   "dependencies": {
     "http": "0.0.1-security",
+    "pcap": "^3.1.0",
     "socket.io": "^2.3.0",
-    "pcap": "^3.1.0"
+    "yargs": "^15.4.1"
   }
 }
