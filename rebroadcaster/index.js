@@ -5,7 +5,7 @@ const http = require("http")
 const server = http.createServer()
 const io = sockets.getSocket(server)
 
-const c = 0;
+var c = 0;
 
 module.exports = {
 
@@ -21,7 +21,9 @@ module.exports = {
             io.emit('packet', packet)
             if(verbose){
                 c++
-                console.log("\rPacotes enviados : " + c)
+                process.stdout.write(`Pacotes enviados : ${c}\r`)
+         
+
             }
         })
         server.listen(port)
