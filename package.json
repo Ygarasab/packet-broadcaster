@@ -24,10 +24,11 @@
   "dependencies": {
     "http": "0.0.1-security",
     "pcap": "^3.1.0",
+    "pcap-parser": "^0.2.1",
     "socket.io": "^2.3.0",
     "yargs": "^15.4.1"
   },
-  "bin" : {
-    "rebroadcast" : "./bin/rebroadcast-packets.js"
+  "bin": {
+    "rebroadcast": "./bin/rebroadcast-packets.js"
   }
 }
