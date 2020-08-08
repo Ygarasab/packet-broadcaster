@@ -14,7 +14,7 @@ const launchRebroadcaster = (port, device) => {
 
     let websocket = sockets.getSocket(port)
     setInterval(() => emitPacket(websocket) , 1000)
-    receptor.listenDevice(device, packet => 
+    receptor.listen(device, packet => 
         mainBuffer = Buffer.concat([mainBuffer, packet.subarray(0, 1424)])
     )
 }

@@ -25,7 +25,7 @@ module.exports = {
         }});
 
         wss.on('connection', _ => {
-            console.log('Someone just started listening')
+            console.log('\nSomeone just started listening')
         })
 
         return wss
