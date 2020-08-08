@@ -1,5 +1,4 @@
 const pcap = require('pcap')
-const pcapp = require('pcap-parser')
 
 module.exports = {
 
@@ -8,7 +7,7 @@ module.exports = {
      * @param { (packet : Buffer) => {}} callback
      */
 
-    listenDevice : (device, callback) => {
+    listen : (device, callback) => {
             
             pcap.createSession(device || '')
             .on(
@@ -21,21 +20,4 @@ module.exports = {
 
     },
 
-    /**
-     * @param {String} filepath
-     * @param { (packet : Buffer) => {}} callback
-     */
-    listenPcap : (filepath, callback) => {
-
-        pcapp.parse(filepath)
-        
-        .on(
-            'packet', 
-            /**
-             * @param {{data : Buffer}} packet
-             */
-            packet => callback(packet.data) 
-        )        
-
-    }
 }
