@@ -14,6 +14,6 @@ const options = yargs
 
 console.log("Runnig Packet Broadcaster, from Ygarasab")
 console.log("Listenning to device : ", options.d || 'all')
-console.log("Emmitting through port :", options.d)
+console.log("Emmitting through port :", options.p)
 
 rebroadcaster.launchRebroadcaster(options.p, options.d, options.v)

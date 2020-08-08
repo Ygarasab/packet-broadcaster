@@ -5,8 +5,12 @@ const http = require("http")
 const server = http.createServer()
 const io = sockets.getSocket(server)
 
+<<<<<<< HEAD
 const packetSize = 1424
 var receivedPackets = []
+=======
+var c = 0;
+>>>>>>> aab11eb554afe99598f4593f1b0bd26d3eee0bca
 
 /**
  * @param {Number} port
