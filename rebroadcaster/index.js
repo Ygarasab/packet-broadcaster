@@ -3,29 +3,24 @@ const sockets = require("./sockets")
 
 var mainBuffer = Buffer.from([])
 
-var pcap_session
-var dropped = 0
-
 /**
  * @param {Number} port
- * @param {Boolean} live
- * @param {String} binder
+ * @param {String} device
+ * @param {Number} packetSize
+ * @param {Number} packetsPerBatch
  */
-const launchRebroadcaster = (port, device) => {
+const launchRebroadcaster = (port, device, packetSize, packetsPerBatch) => {
 
-    let c = 0
-
+    let packetCount = 0
     let websocket = sockets.getSocket(port)
-    //setInterval(() => emitPacket(websocket) , 1500)
-    pcap_session = receptor.listen(device, packet => {
-        c++
-        mainBuffer = Buffer.concat([mainBuffer, packet.subarray(0, 1424)])
-        if(c == 131){
+    receptor.listen(device, packet => {
+        packetCount++
+        mainBuffer = Buffer.concat([mainBuffer, packet.subarray(0, packetSize)])
+        if(packetCount == packetsPerBatch){
             emitPacket(websocket)
-c = 0
+            packetCount = 0
         }
-    }
-    )
+    })
 }
 
 /**
@@ -34,13 +29,9 @@ c = 0
  */
 const emitPacket = websocket => {
     
-let nc = 0
-    websocket.clients.forEach(
-        client => {client.send(mainBuffer)
-nc++
-}    )
+    websocket.clients.forEach( client => client.send(mainBuffer))
     mainBuffer = Buffer.from([])
-process.stdout.write(`[ ${new Date().toLocaleTimeString()} ] ${mainBuffer.length / 1424} packets sent to ${nc} listeners \r`)
+    process.stdout.write(`[ ${new Date().toLocaleTimeString()} ] ${mainBuffer.length / 1424} packets sent to ${websocket.clients.size} listeners \r`)
 
 }
 

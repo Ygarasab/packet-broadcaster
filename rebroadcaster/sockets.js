@@ -8,7 +8,7 @@ module.exports = {
      */
     getSocket : port => {
         
-        const wss = new Server({ port, perMessageDeflate: {
+        return new Server({ port, perMessageDeflate: {
             zlibDeflateOptions: {
             chunkSize: 1024,
             memLevel: 7,
@@ -24,8 +24,6 @@ module.exports = {
             threshold: 1024
         }});
 
-       
-        return wss
     }
 
 }
