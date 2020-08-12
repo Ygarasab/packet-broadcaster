@@ -1,5 +1,5 @@
 {
-  "name": "packet-broadcaster",
+  "name": "packet-rebroadcaster",
   "version": "1.0.0",
   "description": "Broadcast binary packets recieved via ethernet through a web socket",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ygarasab/packet-broadcaster.git"
+    "url": "git+https://github.com/ygarasab/packet-rebroadcaster.git"
   },
   "keywords": [
     "pcap",
@@ -18,12 +18,15 @@
   "author": "Eduardo Cardoso",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ygarasab/packet-broadcaster/issues"
+    "url": "https://github.com/ygarasab/packet-rebroadcaster/issues"
   },
-  "homepage": "https://github.com/ygarasab/packet-broadcaster#readme",
+  "homepage": "https://github.com/ygarasab/packet-rebroadcaster#readme",
   "dependencies": {
-    "http": "0.0.1-security",
-    "socket.io": "^2.3.0",
-    "pcap": "^3.1.0"
+    "pcap": "^3.1.0",
+    "ws": "^7.3.1",
+    "yargs": "^15.4.1"
+  },
+  "bin": {
+    "rebroadcast-packets": "./bin/rebroadcast-packets.js"
   }
 }
