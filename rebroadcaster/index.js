@@ -30,8 +30,9 @@ const launchRebroadcaster = (port, device, packetSize, packetsPerBatch) => {
 const emitPacket = websocket => {
     
     websocket.clients.forEach( client => client.send(mainBuffer))
-    mainBuffer = Buffer.from([])
     process.stdout.write(`[ ${new Date().toLocaleTimeString()} ] ${mainBuffer.length / 1424} packets sent to ${websocket.clients.size} listeners \r`)
+    mainBuffer = Buffer.from([])
+   
 
 }
 
