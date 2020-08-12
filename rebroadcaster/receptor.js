@@ -9,14 +9,15 @@ module.exports = {
 
     listen : (device, callback) => {
             
-            pcap.createSession(device || '')
+            let pcap_session = pcap.createSession(device || '')
             .on(
                 'packet', 
                 /**
                  * @param {{buf : Buffer}} packet
                  */
                 packet => callback(packet.buf) 
-            )        
+            )     
+            return pcap_session   
 
     },
 

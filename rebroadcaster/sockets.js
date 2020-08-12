@@ -24,10 +24,7 @@ module.exports = {
             threshold: 1024
         }});
 
-        wss.on('connection', _ => {
-            console.log('\nSomeone just started listening')
-        })
-
+       
         return wss
     }
 
