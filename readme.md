@@ -37,7 +37,7 @@ Opções:
   -d, --device        device to listen to                  [string] [default: ""]
   -p, --port          port for sockets                   [number] [default: 7000]
   -s, --packet-size   length of each individual packet   [number] [default: 1424]
-  -c, --packet-count  Number of packets per emitted Buffer[number] [default: 131]
+  -c, --packet-count  Number of packets per emitted Buffer[number] [default: 128]
 ```
 
 So in order to broadcast packets you are getting from your loopback through your port 5000, you would do somethig like that:
