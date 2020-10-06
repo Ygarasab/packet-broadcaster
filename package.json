@@ -15,7 +15,7 @@
     "node",
     "broadcast"
   ],
-  "author": "Eduardo Cardoso",
+  "author": "ygarasab",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ygarasab/packet-rebroadcaster/issues"
