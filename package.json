@@ -1,6 +1,6 @@
 {
   "name": "packet-rebroadcaster",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Broadcast binary packets recieved via ethernet through a web socket",
   "main": "index.js",
   "scripts": {
