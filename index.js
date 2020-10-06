@@ -1,1 +1,1 @@
-module.exports = require('./lib/boradcaster')
+module.exports = require('./lib/rebroadcaster')
